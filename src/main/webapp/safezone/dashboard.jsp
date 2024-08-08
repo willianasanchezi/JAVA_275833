@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ page import="java.util.List" %>
+<%@ page import="co.app.utils.UserUtils" %>
+<%@ page import="co.app.utils.UserUtils.UserInfo" %>
 
 <!DOCTYPE html>
 <html>
@@ -17,7 +18,17 @@
     <!-- Agrega aquí el contenido adicional que necesites -->
 
 <form action="logout" method="get">
-    <input type="submit" value="Cerrar Sesión">
+    <input type="submit" value="Cerrar Sesión" >
 </form>
+
+<%
+    UserInfo userInfo = UserUtils.getUserInfo(request);
+    if(userInfo != null) {
+        out.println("Username: " + userInfo.getUsername());
+        out.println("Role: " + userInfo.getRole());
+    } else {
+        out.println("User not logged in or session not available.");
+    }
+%>
 </body>
 </html>

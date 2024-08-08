@@ -7,7 +7,6 @@ import java.io.IOException;
 import jakarta.servlet.annotation.HttpConstraint;
 import jakarta.servlet.annotation.ServletSecurity;
 
-
 @WebServlet("/safezone/dashboard")
 public class DashboardServlet extends HttpServlet {
     @Override
