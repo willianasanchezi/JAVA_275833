@@ -1,7 +1,7 @@
 package co.app.controller;  
   
-import co.app.dao.ProductoDAO;  
-import co.app.model.Producto;  
+import co.app.dao.PrestamoDAO;
+import co.app.model.Prestamo;  
   
 import jakarta.servlet.ServletException;  
 import jakarta.servlet.annotation.WebServlet;  
@@ -13,14 +13,14 @@ import java.io.IOException;
 import java.io.Serial;  
 import java.util.List;  
   
-@WebServlet("/safezone/productos")  
-public class ProductosServlet extends HttpServlet {  
+@WebServlet("/safezone/prestamos")  
+public class PrestamoServlet extends HttpServlet {  
     @Serial  
     private static final long serialVersionUID = 1L;  
-    private ProductoDAO productoDAO;  
+    private PrestamoDAO prestamoDAO;  
   
     public void init() {  
-        productoDAO = new ProductoDAO();  
+        prestamoDAO = new PrestamoDAO();  
     }  
   
     protected void doPost(HttpServletRequest request, HttpServletResponse response)  
@@ -39,58 +39,58 @@ public class ProductosServlet extends HttpServlet {
                 showNewForm(request, response);  
                 break;  
             case "insert":  
-                insertProducto(request, response);  
+                insertPrestamo(request, response);  
                 break;  
             case "delete":  
-                deleteProducto(request, response);  
+                deletePrestamo(request, response);  
                 break;  
             case "edit":  
                 showEditForm(request, response);  
                 break;  
             case "update":  
-                updateProducto(request, response);  
+                updatePrestamo(request, response);  
                 break;  
             default:  
-                listProductos(request, response);  
+                listPrestamos(request, response);  
                 break;  
         }  
     }  
   
-    private void listProductos(HttpServletRequest request, HttpServletResponse response)  
+    private void listPrestamos(HttpServletRequest request, HttpServletResponse response)  
             throws ServletException, IOException {  
-        List<Producto> listaProductos = productoDAO.obtenerTodosLosProductos();  
-        request.setAttribute("listaProductos", listaProductos);  
-        request.getRequestDispatcher("/safezone/producto-list.jsp").forward(request, response);  
+        List<Prestamo> listaPrestamos = prestamoDAO.obtenerTodosLosPrestamos();  
+        request.setAttribute("listaPrestamos", listaPrestamos);  
+        request.getRequestDispatcher("/safezone/prestamo-list.jsp").forward(request, response);  
     }  
   
     private void showNewForm(HttpServletRequest request, HttpServletResponse response)  
             throws ServletException, IOException {  
-        request.getRequestDispatcher("/safezone/producto-form.jsp").forward(request, response);  
+        request.getRequestDispatcher("/safezone/prestamo-form.jsp").forward(request, response);  
     }  
   
-    private void insertProducto(HttpServletRequest request, HttpServletResponse response)  
+    private void insertPrestamo(HttpServletRequest request, HttpServletResponse response)  
             throws IOException {  
-        // Implementar la lógica para insertar un nuevo producto  
-        // Debes obtener los parámetros del formulario y crear una instancia de Producto  
-        // Luego, llamar al método insertarProducto() del DAO  
-        response.sendRedirect("../safezone/productos");  
+        // Implementar la lógica para insertar un nuevo préstamo  
+        // Debes obtener los parámetros del formulario y crear una instancia de Prestamo  
+        // Luego, llamar al método insertarPrestamo() del DAO  
+        response.sendRedirect("../safezone/prestamos");  
     }  
   
     private void showEditForm(HttpServletRequest request, HttpServletResponse response)  
             throws ServletException, IOException {  
-        // Implementar la lógica para mostrar el formulario de edición con los datos del producto  
-        request.getRequestDispatcher("/safezone/producto-form.jsp").forward(request, response);  
+        // Implementar la lógica para mostrar el formulario de edición con los datos del préstamo  
+        request.getRequestDispatcher("/safezone/prestamo-form.jsp").forward(request, response);  
     }  
   
-    private void updateProducto(HttpServletRequest request, HttpServletResponse response)  
+    private void updatePrestamo(HttpServletRequest request, HttpServletResponse response)  
             throws IOException {  
-        // Implementar la lógica para actualizar un producto existente  
-        response.sendRedirect("../safezone/productos");  
+        // Implementar la lógica para actualizar un préstamo existente  
+        response.sendRedirect("../safezone/prestamos");  
     }  
   
-    private void deleteProducto(HttpServletRequest request, HttpServletResponse response)  
+    private void deletePrestamo(HttpServletRequest request, HttpServletResponse response)  
             throws IOException {  
-        // Implementar la lógica para eliminar un producto  
-        response.sendRedirect("../safezone/productos");  
+        // Implementar la lógica para eliminar un préstamo  
+        response.sendRedirect("../safezone/prestamos");  
     }  
 }  
