@@ -20,13 +20,16 @@
             <div class="collapse navbar-collapse" id="navbarNav">  
                 <ul class="navbar-nav">  
                     <li class="nav-item">  
-                        <a class="nav-link active" aria-current="page" href="<%=request.getContextPath()%>/safezone/usuarios?action=list">Ver listado de usuarios</a>  
+                        <a class="nav-link active" aria-current="page" href="<%=request.getContextPath()%>/safezone/usuarios?action=list">Usuarios</a>
                     </li>  
                     <li class="nav-item">  
-                        <a class="nav-link" href="<%=request.getContextPath()%>/safezone/roles?action=list">Ver listado de roles</a>  
+                        <a class="nav-link" href="<%=request.getContextPath()%>/safezone/roles?action=list">Roles</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="<%=request.getContextPath()%>/safezone/productos?action=list">Ver listado de productos</a>
+                        <a class="nav-link" href="<%=request.getContextPath()%>/safezone/productos?action=list">Productos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="<%=request.getContextPath()%>/safezone/mantenimientos?action=list">Mantenimientos</a>
                     </li>
                 </ul>  
             </div>  
