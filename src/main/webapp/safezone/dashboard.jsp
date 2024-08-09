@@ -31,6 +31,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="<%=request.getContextPath()%>/safezone/mantenimientos?action=list">Mantenimientos</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="<%=request.getContextPath()%>/safezone/prestamos?action=list">Prestamos</a>
+                    </li>
                 </ul>  
             </div>  
         </div>  
